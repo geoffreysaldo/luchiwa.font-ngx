@@ -1,0 +1,63 @@
+<div class="col-md-12 d-flex justify-content-center">
+    <nb-card class="col-md-8">
+      <nb-card-header>
+        <h4>Nouveaux clients</h4>
+        <label class="mb-2" style="font-size: 14px;">
+            Avec votre compte Luchiwa, vous pourrez passer vos commandes plus rapidement, les consulter et les suivre.
+            Vous pourrez également reçevoir toute nos nouveautés en souscrivant à la newsletter, et accéder à d'autres avantages...</label>  
+      </nb-card-header>
+      <nb-card-body class="pt-0">
+        <form [formGroup]="signUpForm">
+            <div>
+                <h6>Informations de connexion</h6>
+                <div class="form-group col-md-12">
+                    <label class="label">Adresse email</label>
+                    <input type="email" nbInput fullWidth placeholder="Email" formControlName="email">
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="label">Mot de passe</label>
+                    <input type="password" nbInput fullWidth placeholder="Mot de passe" formControlName="password">
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="label">Vérification du mot de passe</label>
+                    <input type="password" nbInput fullWidth placeholder="Vérification" formControlName="checkPassword">
+                </div>
+            </div>
+            <div>
+                <h6>Informations personelles</h6>
+                <div class=" d-flex">
+                    <div class="form-group col-md-6">
+                        <label class="label">Prénom</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre prénom" formControlName="firstname">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="label">Nom</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre nom" formControlName="lastname">
+                    </div>
+                </div>
+                <div class=" d-flex">
+                    <div class="form-group col-md-6">
+                        <label class="label">Adresse</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre adresse" formControlName="address">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="label">Ville</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre ville" formControlName="city">
+                    </div>
+                </div>
+                <div class=" d-flex">
+                    <div class="form-group col-md-6">
+                        <label class="label">Code postal</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre code postal" formControlName="zipcode">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="label">Téléphone</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre numéro de téléphone" formControlName="phone">
+                    </div>
+                </div>
+            </div> 
+          <button type="submit" nbButton status="warning" (click)="submit()">Submit</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+</div>

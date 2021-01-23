@@ -1,0 +1,68 @@
+<div class="col-md-12 d-flex justify-content-center">
+    <nb-card class="col-md-8">
+      <nb-card-header>
+        <h4>Vos informations</h4> 
+      </nb-card-header>
+      <nb-card-body class="pt-0">
+        <form [formGroup]="userForm">
+            <div>
+                <h6>Informations de connexion</h6>
+                <div class="form-group col-md-12">
+                    <label class="label">Adresse email</label>
+                    <input type="email" nbInput fullWidth placeholder="Email" formControlName="email">
+                </div>
+                <div class="col-md-12 d-flex justify-content-end">
+                    <div class="d-flex flex-column">
+                        <button type="submit" nbButton status="warning" (click)="updatePassword()" [disabled]="updatePasswordBool">Modifier le mot de passe</button>
+                        <span class="font-italic font-weight-bold small">Un email de modification vous sera envoyé</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h6>Informations personelles</h6>
+                <nb-alert status="success" *ngIf="success">
+                    {{success}}
+                </nb-alert>
+                <nb-alert class="danger" *ngIf="error">
+                    {{error}}
+                </nb-alert>
+                <div class=" d-flex">
+                    <div class="form-group col-md-6">
+                        <label class="label">Prénom</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre prénom" formControlName="firstname">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="label">Nom</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre nom" formControlName="lastname">
+                    </div>
+                </div>
+                <div class=" d-flex">
+                    <div class="form-group col-md-6">
+                        <label class="label">Adresse</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre adresse" formControlName="address">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="label">Ville</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre ville" formControlName="city">
+                    </div>
+                </div>
+                <div class=" d-flex">
+                    <div class="form-group col-md-6">
+                        <label class="label">Code postal</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre code postal" formControlName="zipcode">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="label">Téléphone</label>
+                        <input type="text" nbInput fullWidth placeholder="Votre numéro de téléphone" formControlName="phone">
+                    </div>
+                </div>
+                <div class="col-md-12 d-flex justify-content-end">
+                    <button type="submit" nbButton status="warning" (click)="updatePersonalInformation()" *ngIf="!updatePersonalInformationBool">Modifier les informations personnelles</button>
+                    <button class="mr-1" type="submit" nbButton status="danger" (click)="cancelUpdatePersonalInformation()" *ngIf="updatePersonalInformationBool">Annuler</button>
+                    <button type="submit" nbButton status="success" (click)="savePersonalInformation()" *ngIf="updatePersonalInformationBool">Enregistrer les informations personelles</button>
+                </div>
+            </div> 
+        </form>
+      </nb-card-body>
+    </nb-card>
+</div>

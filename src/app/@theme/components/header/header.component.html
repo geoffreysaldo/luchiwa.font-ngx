@@ -1,0 +1,45 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" href="#" (click)="navigateHome()">
+      <img src="assets/images/logo.svg" class="logo">
+    </a>
+  </div>
+</div>
+
+<div class="header-container" *ngIf='!admin'>
+  <nb-actions size="medium">
+    <nb-action *ngIf="!isAuthenticated" class="control-item"  [routerLink]="['/auth/connexion']" icon="person-outline">
+    </nb-action>
+    <nb-action *ngIf="isAuthenticated" [nbContextMenu]="userMenu">
+      <nb-icon icon="person-outline">
+      </nb-icon>
+      <span>{{fullname}}</span>
+    </nb-action>
+  </nb-actions>
+  <div>
+    <nb-badge class="mt-2 mr-2" text="{{articleNumber}}" status="warning" position="top right"></nb-badge>
+    <nb-icon  icon="shopping-cart-outline" (click)="toggleHideShoppingList()">
+    </nb-icon>
+    <div class="shopping-list" *ngIf="isHide">
+      <shopping-list-pop-up [articleNumber]="articleNumber" class="mb-2"></shopping-list-pop-up>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="header-container" *ngIf='admin'>
+  <nb-actions size="small">
+
+    <nb-action *ngIf="!isAuthenticated" class="control-item"  [routerLink]="['/admin/connexion']" icon="person-outline">
+    </nb-action>
+    <nb-action *ngIf="isAuthenticated" [nbContextMenu]="adminMenu">
+      <nb-icon icon="person-outline">
+      </nb-icon>
+      <span>{{fullname}}</span>
+    </nb-action>
+  </nb-actions>
+</div>

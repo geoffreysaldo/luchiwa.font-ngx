@@ -1,0 +1,23 @@
+<nb-card *ngIf="product">
+    <nb-card-header>
+        {{product.name | uppercase}}
+    </nb-card-header>
+    <nb-card-body>
+        <div class="d-flex flex-row justify-content-center">
+            <img src="assets/images/Salade-choux.png" class="img">
+        </div>
+        <p class='p font-italic'>{{product.description}}</p>
+        <h5 class="d-flex flex-row justify-content-center text-warning font-weight-bold" >
+            {{product.totalTaxInclusive | currency: 'EUR':'symbol':undefined:'fr-FR'}}
+        </h5>
+
+        <div class="d-flex flex-row justify-content-end mt-3">
+            <div class="col-sm-6 d-flex flex-row justify-content-end  mr-2" [formGroup]='quantityForm'>
+                <button nbButton status="warning" class="minus" (click)="minus()"><nb-icon icon="minus-circle-outline" ></nb-icon></button>
+                <input class="col-sm-7" formControlName="quantity">
+                <button nbButton status="warning" class="plus" (click)=plus()><nb-icon icon="plus-circle-outline" ></nb-icon></button>
+            </div>
+            <button class="col-sm-5" nbButton status="warning" (click)='add()'>Ajouter</button>
+        </div>
+    </nb-card-body>
+</nb-card>

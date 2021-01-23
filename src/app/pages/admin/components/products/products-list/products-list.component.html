@@ -1,0 +1,41 @@
+<nb-card class="nb-card-tabset">
+    <nb-card-header>
+        Liste de produits
+    </nb-card-header>
+    <nb-card-body>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            NOM
+                        </th>
+                        <th>
+                            TYPE    
+                        </th>
+                        <th>
+                            CATEGORY
+                        </th>
+                        <th>
+                            TVA
+                        </th>
+                        <th>
+                            PRIX HT
+                        </th>
+                        <th>
+                            PRIX TTC
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td><a [routerLink]="['/admin/produits', product._source.type , product._id ]">{{product._source.name}}</a> </td>
+                        <td>{{product._source.type}}</td>
+                        <td>{{product._source.category}}</td>
+                        <td>{{product._source.taxRate}}%</td>
+                        <td>{{product._source.total | currency: 'EUR':'symbol':undefined:'fr-FR'}}</td>
+                        <td>{{product._source.totalTaxInclusive | currency: 'EUR':'symbol':undefined:'fr-FR'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,9 @@
+<div>
+    <h5 class="text-warning" *ngIf='!category'>{{type}}</h5>
+    <h5 class="text-warning" *ngIf='category'>{{categoryName}}</h5>
+    <div class="row mt-4">
+    <div *ngFor="let product of products" class="col-md-4">
+            <product-card [product]='product._source' [id]='product._id'></product-card>
+    </div>
+    </div>
+</div>

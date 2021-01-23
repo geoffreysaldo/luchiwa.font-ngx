@@ -1,0 +1,9 @@
+<nb-card>
+    <nb-card-body>
+        Êtes-vous sûr de vouloir supprimer le produit {{name}} ?
+        <div class="d-flex justify-content-end mt-2">
+            <button class="mr-2" type="submit" nbButton status="danger" (click)="cancel()">Annuler</button>
+            <button type="submit" nbButton status="success" (click)="delete()" >Supprimer le produit</button>
+        </div>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,18 @@
+@import '../../styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+  .menu-sidebar ::ng-deep .scrollable {
+    padding-top: nb-theme(layout-padding-top);
+  }
+}
+
+.shopping-list-sidebar-compact ::ng-deep{
+  width: 0px !important;
+}
+
+.shopping-list-sidebar-expanded ::ng-deep{
+  width: 300px !important;
+}
+

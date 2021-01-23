@@ -1,0 +1,67 @@
+<div class="col-md-12 d-flex justify-content-center">
+    <nb-card>
+        <nb-card-header>
+            {{product.name}}
+        </nb-card-header>
+        <nb-card-body class="d-flex flex-row justify-content-between">
+            <div class="col-md-6">
+                <nb-card>
+                    <nb-card-header>
+                        Informations produits
+                    </nb-card-header>
+                    <nb-card-body class="d-flex flex-column">
+                        <img src="assets/images/salade-choux.png" class="img">
+                        <div class="d-flex justify-content-between mt-2">
+                            <label>Type</label>
+                            <span>{{product.type}}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <label>Catégorie</label>
+                            <span>{{product.categoryName}}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <label>TVA</label>
+                            <span>{{product.taxRate}} %</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <label>Total HT</label>
+                            <span>{{product.total | currency: 'EUR':'symbol':undefined:'fr-FR'}}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <label>Total TTC</label>
+                            <span>{{product.totalTaxInclusive | currency: 'EUR':'symbol':undefined:'fr-FR'}}</span>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </div>
+            <div class="col-md-6">
+            <nb-card>
+                <nb-card-header>
+                    Mots clés de recherche
+                </nb-card-header>
+                <nb-card-body>
+                    <nb-list>
+                        <nb-list-item *ngFor="let keyword of product.keywords">
+                            {{keyword}}
+                        </nb-list-item>
+                    </nb-list>
+                </nb-card-body>
+            </nb-card>
+            <nb-card>
+                <nb-card-header>
+                    Description
+                </nb-card-header>
+                <nb-card-body class="d-flex flex-column">
+                    <div class="d-flex justify-content-between">
+                        <p> {{product.description}}</p>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+            </div>
+        </nb-card-body>
+        <div class="d-flex justify-content-end mr-4 mb-4">
+            <button class="mr-2" type="submit" nbButton status="danger" (click)="deleteProduct()" >Supprimer le produit</button>
+            <button type="submit" nbButton status="warning" (click)="updateProduct()" >Modifier le produit</button>
+        </div>
+    </nb-card>
+</div>
